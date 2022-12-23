@@ -10,7 +10,6 @@ mapping(address => uint) public collateralEther;
 mapping(address => bool) public isDeposited;
 mapping(address => bool) public isBorrowed;
 
-
  function deposit() payable public {
     require(isDeposited[msg.sender] == false, 'Error, deposit already active');
     require(msg.value>=1e16, 'Error, deposit must be >= 50 ETH');
@@ -62,4 +61,5 @@ function withdraw() public {
     collateralEther[msg.sender] = 0;
     isBorrowed[msg.sender] = false;    
   }
+
 }
